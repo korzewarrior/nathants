@@ -27,7 +27,7 @@
 :root.light-mode {
     --bg-color: #f0f4f8;
     --text-color: #1a202c;
-    --accent-color: #00b36b;
+    --accent-color: #00a864;
     --secondary-color: #4a5568;
     --hover-color: #00cc7a;
     --code-bg: #e2e8f0;
@@ -1114,16 +1114,26 @@ footer {
     }
 }
 
+/* Keep matrix background visible in light mode with modified color */
+:root.light-mode .matrix-bg {
+    background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(0, 179, 107, .07) 25%, rgba(0, 179, 107, .07) 26%, transparent 27%, transparent 74%, rgba(0, 179, 107, .07) 75%, rgba(0, 179, 107, .07) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(0, 179, 107, .07) 25%, rgba(0, 179, 107, .07) 26%, transparent 27%, transparent 74%, rgba(0, 179, 107, .07) 75%, rgba(0, 179, 107, .07) 76%, transparent 77%, transparent);
+    opacity: 0.9;
+}
+
 /* Make sure the terminal text stays readable in light mode */
 :root.light-mode .terminal {
-    color: #00ff9d;
-    text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+    color: #00b36b;
+    text-shadow: 0 0 5px rgba(0, 179, 107, 0.5);
+    font-weight: 700;
 }
 
 :root.light-mode .code-block {
     background-color: #0f1117;
     color: #e2e8f0;
     border-color: rgba(0, 179, 107, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 :root.light-mode .code-block pre,
@@ -1137,20 +1147,38 @@ footer {
 }
 
 :root.light-mode .hero-note.terminal {
-    color: #00cc7a;
-    text-shadow: 0 0 5px rgba(0, 204, 122, 0.3);
+    color: #008c53;
+    text-shadow: 0 0 5px rgba(0, 140, 83, 0.5);
+    font-weight: 700;
 }
 
 :root.light-mode .highlight.terminal {
-    color: #00cc7a;
-    text-shadow: 0 0 5px rgba(0, 204, 122, 0.3);
+    color: #008c53;
+    text-shadow: 0 0 5px rgba(0, 140, 83, 0.5);
+    font-weight: 700;
 }
 
 :root.light-mode .blink {
-    background-color: #00cc7a;
+    background-color: #00aa63;
 }
 
 :root.light-mode .terminal-load {
-    color: #00cc7a;
-    text-shadow: 0 0 5px rgba(0, 204, 122, 0.3);
+    color: #008c53;
+    text-shadow: 0 0 5px rgba(0, 140, 83, 0.5);
+}
+
+:root.light-mode .footer-link,
+:root.light-mode .footer-nav-link:hover {
+    text-shadow: 0 0 3px rgba(0, 179, 107, 0.5);
+}
+
+:root.light-mode h4 {
+    color: #008c53;
+    text-shadow: 0 0 2px rgba(0, 140, 83, 0.3);
+}
+
+/* More visible glitch elements in light mode */
+:root.light-mode .glitch-element {
+    color: #008c53;
+    opacity: 0.4;
 } 
