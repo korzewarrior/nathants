@@ -337,4 +337,138 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 5000);
         }
     });
+
+    // Add dark/light mode toggle functionality
+    const root = document.documentElement;
+    const modeToggle = document.getElementById('modeToggle');
+    const modeCommand = document.getElementById('modeCommand');
+    const modeNotification = document.getElementById('modeNotification');
+    const currentMode = document.getElementById('currentMode');
+    
+    // Check if user has a preference stored
+    const savedMode = localStorage.getItem('colorMode');
+    if (savedMode === 'light') {
+        enableLightMode(false);
+    }
+    
+    // Function to enable light mode
+    function enableLightMode(showNotification = true) {
+        root.classList.add('light-mode');
+        modeCommand.textContent = 'mode:light';
+        currentMode.textContent = 'light';
+        localStorage.setItem('colorMode', 'light');
+        
+        if (showNotification) {
+            showModeNotification();
+            playModeToggleEffect('light');
+        }
+    }
+    
+    // Function to enable dark mode
+    function enableDarkMode(showNotification = true) {
+        root.classList.remove('light-mode');
+        modeCommand.textContent = 'mode:dark';
+        currentMode.textContent = 'dark';
+        localStorage.setItem('colorMode', 'dark');
+        
+        if (showNotification) {
+            showModeNotification();
+            playModeToggleEffect('dark');
+        }
+    }
+    
+    // Show notification when mode changes
+    function showModeNotification() {
+        modeNotification.classList.add('visible');
+        setTimeout(() => {
+            modeNotification.classList.remove('visible');
+        }, 2000);
+    }
+    
+    // Apply a fun "terminal command" effect when toggling
+    function playModeToggleEffect(mode) {
+        // Create temporary terminal effect
+        const terminalEffect = document.createElement('div');
+        terminalEffect.className = 'terminal-load';
+        terminalEffect.textContent = `> Initializing ${mode} mode...`;
+        document.body.appendChild(terminalEffect);
+        
+        // Screen "glitch" effect
+        document.body.classList.add('konami');
+        
+        // Remove after effect completes
+        setTimeout(() => {
+            terminalEffect.style.opacity = '0';
+            document.body.classList.remove('konami');
+            setTimeout(() => {
+                document.body.removeChild(terminalEffect);
+            }, 300);
+        }, 700);
+        
+        // Add some random terminal-like floating elements
+        const commands = [
+            `setting theme: ${mode}`, 
+            `config.update()`, 
+            `rendering complete`,
+            `${mode}.css loaded`,
+            `runtime: initialized`
+        ];
+        
+        for (let i = 0; i < 4; i++) {
+            setTimeout(() => {
+                const floater = document.createElement('div');
+                floater.className = 'easter-egg-float';
+                floater.style.setProperty('--random-x', `${Math.random() * 200 - 100}px`);
+                floater.style.setProperty('--random-y', `${Math.random() * 200 - 100}px`);
+                floater.style.setProperty('--random-rotate', `${Math.random() * 360}deg`);
+                floater.textContent = commands[i % commands.length];
+                floater.style.top = `${Math.random() * 70 + 15}%`;
+                floater.style.left = `${Math.random() * 70 + 15}%`;
+                
+                document.body.appendChild(floater);
+                
+                setTimeout(() => {
+                    floater.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(floater);
+                    }, 500);
+                }, 2000);
+            }, i * 200);
+        }
+    }
+    
+    // Event listener for toggle
+    modeToggle.addEventListener('click', function() {
+        if (root.classList.contains('light-mode')) {
+            enableDarkMode();
+        } else {
+            enableLightMode();
+        }
+    });
+    
+    // Easter egg: Typing "light" or "dark" on keyboard
+    let keys = '';
+    const modeCommands = {
+        'light': enableLightMode,
+        'dark': enableDarkMode
+    };
+    
+    document.addEventListener('keydown', function(e) {
+        // Only record alphabetic keys for the easter egg
+        if (/^[a-zA-Z]$/.test(e.key)) {
+            keys += e.key.toLowerCase();
+            // Keep only the last 10 keystrokes to avoid memory issues
+            if (keys.length > 10) {
+                keys = keys.substring(keys.length - 10);
+            }
+            
+            // Check if any of our commands are in the recent keystrokes
+            Object.keys(modeCommands).forEach(command => {
+                if (keys.includes(command)) {
+                    modeCommands[command]();
+                    keys = ''; // Reset the key tracking
+                }
+            });
+        }
+    });
 }); 
