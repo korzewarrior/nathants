@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aws-gocljs | nathants</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    <div class="glitch-element glitch-1">{</div>
+    <div class="glitch-element glitch-2">}</div>
+    <div class="glitch-element glitch-3">/</div>
+    <div class="glitch-element glitch-4">$</div>
+    
+    <header>
+        <h1 class="glitch" data-text="aws-gocljs">aws-gocljs</h1>
+        <div class="header-code">_</div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h2 class="tagline">fullstack web should be <span class="highlight terminal">easy</span></h2>
+            <a href="https://github.com/nathants/aws-gocljs" target="_blank" class="site-url"><span class="url-prefix">github.com/</span><span class="url-domain">nathants/aws-gocljs</span></a>
+            
+            <div class="code-block corrupted">
+                <div class="code-block-header">nathan@aws-gocljs:~$</div>
+<pre><code>> PROJECT: Fullstack WebApp Scaffold
+> TECH STACK:
+  - Go lambda backend
+  - ClojureScript + React frontend
+  - S3 and DynamoDB for state
+  - HTTP and WebSocket APIs
+> DEPLOYMENT:
+  - Fast and reliable automation
+  - Easy browser testing
+  - Low latency logging
+> STATUS: Ready to deploy on AWS
+> _</code></pre>
+            </div>
+            
+            <p class="hero-note terminal">start with working implementations, then tinker until your app is complete <span class="blink">_</span></p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/nathants/aws-gocljs" target="_blank" class="cta-button">clone repository</a>
+                <a href="https://github.com/nathants/aws-gocljs/blob/master/README.md" target="_blank" class="cta-button secondary">read documentation</a>
+            </div>
+        </section>
+        
+        <section class="features corrupted">
+            <h3 class="glitched">system components</h3>
+            
+            <div class="feature-grid">
+                <div class="feature-item shifted-left">
+                    <h4>Lambda Architecture</h4>
+                    <p>Minimal lambda zip containing only 3 files: favicon.png, index.html.gz, and the go binary main. Efficient and lightweight deployment.</p>
+                </div>
+                
+                <div class="feature-item shifted-right">
+                    <h4>Frontend + Backend</h4>
+                    <p>Go lambda backend with ClojureScript and React frontend. Full-stack capabilities with seamless integration.</p>
+                </div>
+                
+                <div class="feature-item shifted-left">
+                    <h4>State Management</h4>
+                    <p>S3 and DynamoDB for robust state management. HTTP and WebSocket APIs for real-time communication.</p>
+                </div>
+                
+                <div class="feature-item shifted-right">
+                    <h4>DevOps Automation</h4>
+                    <p>Streamlined development workflow with automated deployment and testing. Low latency logging for debugging.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="divider">
+            <span class="divider-code">/* * * * */</span>
+        </div>
+        
+        <section class="features">
+            <h3 class="terminal">quickstart commands</h3>
+            
+            <div class="code-block">
+                <div class="code-block-header">terminal commands:</div>
+<pre><code>git clone https://github.com/nathants/aws-gocljs
+cd aws-gocljs
+cp env.sh.template env.sh # update values
+
+# development and deployment
+bash bin/check.sh         # lint
+bash bin/preview.sh       # preview changes to aws infra
+bash bin/ensure.sh        # ensure aws infra
+bash bin/dev.sh           # iterate on backend and frontend
+bash bin/logs.sh          # tail the logs
+bash bin/delete.sh        # delete aws infra
+
+# with limited bandwidth
+bash bin/dev_frontend.sh  # iterate on localhost frontend
+bash bin/relay.sh         # iterate on backend via ec2 relay</code></pre>
+            </div>
+        </section>
+        
+        <div class="divider">
+            <span class="divider-code">/* * * * */</span>
+        </div>
+        
+        <section class="features">
+            <h3 class="terminal">dependencies</h3>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>System Requirements</h4>
+                    <p>Use the included Dockerfile or install the following dependencies: npm, jdk, go, bash, entr, libaws</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>AWS Prerequisites</h4>
+                    <p>AWS Route53 has the domain or its parent from env.sh. AWS ACM has a wildcard cert for the domain or its parent from env.sh.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-links">
+            <span class="terminal">navigation: </span>
+            <a href="index.html" class="footer-nav-link">Home</a>
+            <span class="separator">|</span>
+            <a href="aws-gocljs.html" class="footer-nav-link">aws-gocljs</a>
+            <span class="separator">|</span>
+            <a href="https://better.game" target="_blank" class="footer-nav-link">better.game</a>
+            <span class="separator">|</span>
+            <a href="https://github.com/nathants" target="_blank" class="footer-nav-link">GitHub</a>
+            <span class="separator">|</span>
+            <a href="mailto:contact@nathants.com" class="footer-nav-link">Email</a>
+        </div>
+        
+        <p class="copyright terminal">&copy; <span class="year">2025</span> nathants :: fullstack web made easy :: <a href="https://github.com/nathants/aws-gocljs" target="_blank" class="footer-link">github.com/nathants/aws-gocljs</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
